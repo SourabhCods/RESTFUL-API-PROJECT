@@ -1,0 +1,55 @@
+body{
+    background-color: black;
+}
+.instalogo{
+    height:200px;
+    width:200px;
+    background-image: url(instalogo2.png);
+    background-size: cover;
+    position:absolute;
+    left:600px;
+    top:80px;
+    
+    animation: rotatelogo 1s ease-in-out 1s 10 alternate;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+
+}
+
+@keyframes rotatelogo {
+    0%{
+        transform: scale(0);
+        rotate: 180deg;
+
+    }
+    100%{
+
+        transform: scale(1);
+        rotate: 360deg;
+
+    }
+}
+a{
+    font-size: 80px;
+    color: antiquewhite;
+    font-family: 'Alkatra', system-ui;
+    
+    position:absolute;
+    left:550px;
+    bottom:100px;
+}
+a:before{
+    content:"";
+    position:absolute;
+    bottom: -2px;
+    height:6px;
+    width:100%;
+    background-color: aqua;
+    border-radius:10px;
+    transform: scaleX(0);
+    transition: transform 0.5s linear;
+}
+a.hover:before{
+    transform: scaleX(3);
+}    
+
+ 
