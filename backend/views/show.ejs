@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Maker</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+<body>
+
+
+    <div class="postbar">
+        <div class="story-bar">
+            <div class="story"><img src="https://www.euroschoolindia.com/blogs/wp-content/uploads/2023/08/cartoons-for-kids.jpg" class="dp-img"></div>
+            <div class="story"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrcBlJ4l3aD3iQIAWTLdQA7xWrk59ufiCVA&usqp=CAU" class="dp-img"></div>
+            <div class="story"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtkBfai_eFRK3f4E4SCHktec51gnLhatdYZw&usqp=CAU" class="dp-img"></div>
+            <div class="story"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzmk4EUYhodqtCskNIpdlQiews13uEoPRyGw&usqp=CAU" class="dp-img"></div>
+            <div class="story"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQTZANi1eIVaDmAwJ96JSKryN8YuJxH_rW5w&usqp=CAU" class="dp-img"></div>
+            <div class="story"><img src="https://render.fineartamerica.com/images/rendered/default/poster/7/8/break/images/artworkimages/medium/3/doremon-deepak-pengoria.jpg" class="dp-img"></div>
+            <div class="story"><img src="https://i.pinimg.com/736x/ec/ec/eb/ececebdd9afc20eab7b2ed92bbc8d2c6.jpg" class="dp-img"></div>
+            <div class="story"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvCk0tHc-2L_FmE0rudxg66vaIV5WWxTizVQ&usqp=CAU" class="dp-img"></div>
+            <div class="story"><img src="https://static.javatpoint.com/top10-technologies/images/top-10-cartoons3.png" class="dp-img"></div>
+            <div class="story"><img src="https://www.euroschoolindia.com/blogs/wp-content/uploads/2023/08/cartoons-for-kids.jpg" class="dp-img"></div>
+        </div>
+        <button class="addnew" label="Create New">
+            <a href=http://localhost:8080/newpost>
+                <span class="material-symbols-outlined">
+                    add
+                    </span>
+                    New Post
+            </a>
+        </button>
+        <% for(eachPost of instaPosts){ %>
+            <div class="post">
+
+                <div class="post-header">
+                    <div class="profile-pic"></div>
+                    <h4><%= eachPost.username %></h4>
+                </div>
+                <br>
+                <br>
+
+                <div class="post-caption">
+                    <p> <%= eachPost.caption %></p>
+                    <span class="material-symbols-outlined" id="more-info">
+                        more_vert
+                    </span>
+                </div>
+                    
+                
+
+                <img src="<%= eachPost.image %>">
+                <div class="post-btns">
+                    <span class="material-symbols-outlined like-btn">favorite</span>
+                    <span class="material-symbols-outlined">mode_comment</span>
+                    <span class="material-symbols-outlined">send</span>
+                </div>
+                <br>
+                <br>
+                <div class="edit-bar">
+                    <button class="btn"><a href="http://localhost:8080/post/<%= eachPost.id %>/edit">EDIT</a></button>
+                    <br>
+                    <button class="btn"><a href="http://localhost:8080/post/<%= eachPost.id %>">ABOUT</a></button>
+                    <br>
+                    <form method="post" action="/post/<%=  eachPost.id %>?_method=DELETE">
+                        <button class="btn">Delete</button>
+                    </form>
+                </div>
+                    
+            </div>
+        <% } %>
+
+                
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
